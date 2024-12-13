@@ -1,10 +1,10 @@
 public class Worker {
-    private String name;
-    private String position;
-    private String email;
-    private long phone;
-    private int salary;
-    private int age;
+     String name;
+     String position;
+     String email;
+     long phone;
+     int salary;
+     int age;
 
     public Worker(String name, String position, String email, long phone, int salary, int age) {
         this.name = name;
@@ -21,10 +21,5 @@ public class Worker {
         System.out.println("Телефон: " + phone);
         System.out.println("Зарплата: " + salary);
         System.out.println("Возраст: " + age );
-    }
-    public static void main(String [] args) {
-        Worker worker1 = new Worker("Петров Петр Петрович","Секретарь", "petrov@com", 14725836, 55000, 25);
-        worker1.info();
-
     }
 }

@@ -3,11 +3,11 @@ public class Park1 {
     public Park1(String name){
         this.name = name;
     }
-    public class Attractions{
+    public class Attraction{
         private String attractionName;
         private String time;
         private double cost;
-        public Attractions(String attractionName, String time, double cost) {
+        public Attraction(String attractionName, String time, double cost) {
             this.attractionName = attractionName;
             this.time = time;
             this.cost = cost;
@@ -20,7 +20,7 @@ public class Park1 {
     }
     public static void main(String[] args) {
         Park1 park = new Park1 ("Park");
-        Attractions attraction1 = park.new Attractions("Аттракцион 1", "9:00 - 15-00", 5.50);
+        Attraction attraction1 = park.new Attraction("Аттракцион 1", "9:00 - 15-00", 5.50);
         attraction1.info();
 
     }
