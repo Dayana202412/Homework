@@ -18,10 +18,7 @@ public class Park1 {
             System.out.println("Стоимость: " + cost);
         }
     }
-    public static void main(String[] args) {
-        Park1 park = new Park1 ("Park");
-        Attraction attraction1 = park.new Attraction("Аттракцион 1", "9:00 - 15-00", 5.50);
-        attraction1.info();
+
 
     }
-}
+
