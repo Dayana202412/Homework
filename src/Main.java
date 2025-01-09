@@ -1,22 +1,46 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
-    public static void main(String [] args) {
-        Worker worker1 = new Worker("Петров Петр Петрович","Секретарь", "petrov@com", 14725836, 55000, 25);
-        worker1.info();
+ public static void main(String[] args) {
+  Circle circle = new Circle(20);
+  circle.setColor("Красный");
+  circle.setBorderColor("Чёрный");
+  circle.characteristics();
+
+  Rect rect = new Rect(2, 4);
+  rect.setColor("Зелёный");
+  rect.setBorderColor("Оранжевый");
+  rect.characteristic();
+
+  Triangle triangle = new Triangle(2, 4, 6);
+  triangle.setColor("Голубой");
+  triangle.setBorderColor("Жёлтый");
+  triangle.characteristic();
 
 
-        Worker[] workArray = new Worker[5];
-        workArray[0] = new Worker("Ivanov Ivan", "Enginner", "ivivan@mailbox.com", 892312312, 30000, 30);
-        workArray[1] = new Worker("Petrov Petr", "Manager", "petrow@.com", 789654123, 20000, 42);
-        workArray[2] = new Worker("Lavrov Ivan", "Engineer", "lavrov@.com", 879546213, 45000, 21);
-        workArray[3] = new Worker("Savina Olga", "Manager", "olga@.com", 874965123, 120000, 28);
-        workArray[4] = new Worker("Volkov Roman", "Engineer", "volk@.com", 258741369, 90000, 34);
+  Dog dog = new Dog("Tolik");
+  dog.run(250);
+  dog.swim(12);
+
+  Cat cat = new Cat("Tosik");
+  cat.run(10);
+  cat.swim(30);
+
+  System.out.println("Общее количество животных: " + Animal.getAnimalCount());
+  System.out.println("Общее количество котов: " + Cat.getCatCount());
+  System.out.println("Общее количество собак: " + Dog.getDogCount());
+
+  Cat[] cats = {
+          new Cat("Tosik"),
+          new Cat("Murzik")};
+  Bowl bowl = new Bowl(40);
+  for (Cat cat1 : cats) {
+   cat.eat(bowl, 20);
+  }
+  for (Cat cat1 : cats) {
+   System.out.println("Кот сыт: " + !cat.isHungry());
+  }
+  bowl.addFood(50);
 
 
-        Park1 park = new Park1 ("Park");
-        Park1.Attraction attraction1 = park.new Attraction("Аттракцион 1", "9:00 - 15-00", 5.50);
-        attraction1.info();
-
-    }
+ }
 }
