@@ -1,33 +1,46 @@
-public class Circle implements Shape, Painting, BorderColor {
-    private double radius;
+public class Circle implements Shape {
+    private String name;
     private String color;
     private String borderColor;
+    private double radius;
 
-    public Circle(double radius) {
+    public Circle(String name, String color, String borderColor, double radius) {
+        this.name = name;
+        this.color = color;
+        this.borderColor = borderColor;
         this.radius = radius;
+
     }
 
+    @Override
+    public String name() {
+        return name;
+    }
+
+    @Override
     public double calculatePerimetr() {
+
         return 2 * Math.PI * radius;
     }
 
+    @Override
     public double calculateArea() {
         return Math.PI * radius * radius;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    @Override
+    public String color() {
+        return color;
     }
 
-    public void setBorderColor(String color) {
-        this.borderColor = color;
+    @Override
+
+    public String borderColor() {
+        return borderColor;
     }
 
-    public void characteristics() {
-        System.out.println("Круг: ");
-        System.out.println("Периметр: " + calculatePerimetr());
-        System.out.println("Площадь: " + calculateArea());
-        System.out.println("Цвет заливки: " + color);
-        System.out.println("Цвет границы:  " + borderColor);
+    @Override
+    public void printInfo() {
+        Shape.super.printInfo();
     }
 }

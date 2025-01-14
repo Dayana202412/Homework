@@ -1,11 +1,10 @@
 public class Dog extends Animal {
-    String name;
-    static int dogCount = 0;
+    private static int dogCount = 0;
 
-    Dog(String name) {
-        super();
+    public Dog(String name) {
+        super(name);
         dogCount++;
-        this.name = name;
+
     }
 
     @Override
@@ -26,7 +25,27 @@ public class Dog extends Animal {
         }
     }
 
-    static int getDogCount() {
+    public static int getDogCount() {
         return dogCount;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

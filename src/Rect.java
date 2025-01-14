@@ -1,36 +1,46 @@
-public class Rect implements Shape, Painting, BorderColor {
-    private double width;
-    private double height;
+public class Rect implements Shape {
+    private String name;
     private String color;
     private String borderColor;
+    private double width;
+    private double height;
 
-    public Rect(double width, double height) {
+
+    public Rect(String name, String color, String borderColor, double width, double height) {
+        this.name = name;
+        this.color = color;
+        this.borderColor = borderColor;
         this.width = width;
         this.height = height;
     }
 
+    @Override
+    public String name() {
+        return name;
+    }
+
+    @Override
     public double calculatePerimetr() {
         return 2 * (width + height);
     }
+
+    @Override
 
     public double calculateArea() {
         return width * height;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    @Override
+    public String color() {
+        return color;
     }
 
-    public void setBorderColor(String color) {
-        this.borderColor = color;
+    @Override
+    public String borderColor() {
+        return borderColor;
     }
 
-    public void characteristic() {
-        System.out.println("Прямоугольник: ");
-        System.out.println("Периметр: " + calculatePerimetr());
-        System.out.println("Площадь: " + calculateArea());
-        System.out.println("Цвет заливки: " + color);
-        System.out.println("Цвет границы:  " + borderColor);
-
+    public void printInfo() {
+        Shape.super.printInfo();
     }
 }

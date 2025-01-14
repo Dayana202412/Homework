@@ -1,10 +1,9 @@
 public class Cat extends Animal {
-    String name;
-    static int catCount = 0;
+    private static int catCount = 0;
     private boolean hungry;
 
-    Cat(String name) {
-        super();
+    public Cat(String name) {
+        super(name);
         catCount++;
         this.name = name;
         this.hungry = true;
@@ -43,5 +42,32 @@ public class Cat extends Animal {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

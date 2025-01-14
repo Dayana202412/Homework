@@ -1,7 +1,10 @@
-class Animal {
-    private static int animalCount = 0;
+abstract class Animal {
+    protected String name;
+    protected static int animalCount = 0;
 
-    public Animal() {
+
+    public Animal(String name) {
+        this.name = name;
         animalCount++;
     }
 
@@ -10,11 +13,11 @@ class Animal {
     }
 
     public void run(int distance) {
-        System.out.println("Это животное бежит " + distance + " метров");
+        System.out.println(name + " пробежал " + distance + " метров");
     }
 
     public void swim(int distance) {
-        System.out.println("Это животное плывёт " + distance + " метров");
+        System.out.println(name + "проплыл " + distance + " метров");
     }
 }
 
