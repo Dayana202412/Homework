@@ -19,12 +19,12 @@ public class Main {
         try {
             int sum = checkSumArray(array);
             System.out.println("Сумма элементов массива = " + sum + "\n");
-        } catch (MyArraySizeException e) {
+        } catch (MyArraySizeException | MyArrayDataException e) {
             System.err.println("Ошибка: " + e.getMessage());
         }
     }
 
-    public static int checkSumArray(String[][] array) throws MyArraySizeException {
+    public static int checkSumArray(String[][] array) throws MyArraySizeException, MyArrayDataException {
         if (array.length != 4) {
             throw new MyArraySizeException("Размер массива должен быть 4x4.");
         }
@@ -38,7 +38,7 @@ public class Main {
                 try {
                     sum += Integer.parseInt(array[i][j]);
                 } catch (NumberFormatException e) {
-                    System.err.println(" Невозможно преобразовать в число " + array[i][j]);
+                    throw new MyArrayDataException("Невозможно преобразовать в число: " + array[i][j] + " в ячейке [" + i + "][" + j + "]");
                 }
             }
         }
