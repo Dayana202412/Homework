@@ -1,48 +1,32 @@
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        String[][] array = {
-                {"1", "10", "15", "Собака"},
-                {"2", "20", "25", "55"},
-                {"3", "Кот", "35", "60"},
-                {"4", "40", "$", "75"}
-        };
-        String[][] incorrectArray = {
-                {"1", "2", "3"},
-                {"10", "15", "20"}
+        String[] fruits = {
+                "Яблоко", "Дыня", "Арбуз", "Арбуз",
+                "Манго", "Мандарин", "Киви", "Хурма",
+                "Яблоко", "Киви", "Гранат", "Манго",
         };
 
-        checkArray(array);
-        checkArray(incorrectArray);
-    }
+        HashSet<String> fruitsUnique = new HashSet<>(Arrays.asList(fruits));
 
-    public static void checkArray(String[][] array) {
-        try {
-            int sum = checkSumArray(array);
-            System.out.println("Сумма элементов массива = " + sum + "\n");
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            System.err.println("Ошибка: " + e.getMessage());
+        HashMap<String, Integer> countFruits = new HashMap<>();
+        for (String fruit : fruits) {
+            countFruits.put(fruit, countFruits.getOrDefault(fruit, 0) + 1);
         }
-    }
+        System.out.println("Уникальные слова: " + fruitsUnique);
 
-    public static int checkSumArray(String[][] array) throws MyArraySizeException, MyArrayDataException {
-        if (array.length != 4) {
-            throw new MyArraySizeException("Размер массива должен быть 4x4.");
+        System.out.println("Слово встречается:");
+        for (Map.Entry<String, Integer> entry : countFruits.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " раз(а)");
         }
-        int sum = 0;
+        PhoneBook phoneBook = new PhoneBook();
+        phoneBook.add("Котов", "125478");
+        phoneBook.add("Яшин", "101203");
+        phoneBook.add("Котов", "963852");
 
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].length != 4) {
-                throw new MyArraySizeException("Каждая строка массива должна содержать 4 элемента");
-            }
-            for (int j = 0; j < array[i].length; j++) {
-                try {
-                    sum += Integer.parseInt(array[i][j]);
-                } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("Невозможно преобразовать в число: " + array[i][j] + " в ячейке [" + i + "][" + j + "]");
-                }
-            }
-        }
-
-        return sum;
+        System.out.println("Котов: " + phoneBook.get("Котов"));
+        System.out.println("Яшин: " + phoneBook.get("Яшин"));
+        System.out.println("Кравцов: " + phoneBook.get("Кравцов"));
     }
 }
